@@ -19,16 +19,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         btnLogin = findViewById(R.id.btnLogin)
         //btnSingin = findViewById(R.id.btnRegistrar)
-
         supportActionBar!!.hide()
-
-
         btnLogin!!.setOnClickListener(){
             confirmedUser()
         }
