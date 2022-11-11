@@ -3,6 +3,7 @@ package com.example.medicalonlineapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import com.example.medicalonlineapp.principalView.PrincipalView
@@ -21,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        Log.d("este es el ejemplo de la actualizacion", "el mensaje es si funciono")
 
         btnLogin = findViewById(R.id.btnLogin)
         //btnSingin = findViewById(R.id.btnRegistrar)
