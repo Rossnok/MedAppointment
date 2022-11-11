@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Inicio"
+        android:id="@+id/menuItemInicio"
+        android:icon="@drawable/ic_baseline_home_24"
+        />
+    <item android:title="Agendar"
+        android:id="@+id/menuItemAgendar"
+        android:icon="@drawable/ic_baseline_pending_actions_24"
+        />
+    <item android:title="Citas"
+        android:id="@+id/menuItemCitas"
+        android:icon="@drawable/ic_baseline_sick_24"
+        />
+    <item android:title="Anteriores"
+        android:id="@+id/menuItemAnteriores"
+        android:icon="@drawable/ic_baseline_history_24"
+        />
+    <item android:title="Perfil"
+        android:id="@+id/menuItemPerfil"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        />
+</menu>

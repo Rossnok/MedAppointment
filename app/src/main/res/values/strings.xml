@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MedApp</string>
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#0086e6</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_medapp</item>
+        <item name="postSplashScreenTheme">@style/Theme.AppCompat.Light</item>
+    </style>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_angendar">AGENDAR</string>
+</resources>
