@@ -5,10 +5,11 @@
     android:orientation="horizontal">
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
+    android:layout_marginBottom="8dp"
     android:background="@drawable/card_view_cita_proxima_stile"
     android:elevation="20dp"
     android:outlineProvider="bounds"
@@ -33,7 +34,7 @@
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/roboto_medium"
             android:text="Sergio Rosas Mendez"
-            android:textSize="19dp" />
+            android:textSize="16dp"/>
 
         <TextView
             android:id="@+id/edadPacienteCardViewCitas"
@@ -42,7 +43,7 @@
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/roboto_medium"
             android:text="26 Años"
-            android:textSize="19dp" />
+            android:textSize="16dp"/>
 
         <TextView
             android:id="@+id/alergiasPacienteCardViewCitas"
@@ -51,13 +52,14 @@
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/roboto_medium"
             android:text="Alergias: penicilina"
-            android:textSize="19dp" />
+            android:textSize="16dp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
             android:paddingStart="30dp">
 
             <TextView
