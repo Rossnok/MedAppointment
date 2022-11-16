@@ -9,8 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.CircularProgressDrawable
-import com.bumptech.glide.Glide
 import com.example.medicalonlineapp.R
 import com.example.medicalonlineapp.fragments.Agendar
 import com.example.medicalonlineapp.paciente.Paciente
@@ -24,20 +22,18 @@ class PacienteAdapter (mCtx: Context, pacientesList:List<Paciente>, activity: Ac
     private val activity:Activity
 
     private val pacienteList : List<Paciente>
-    var circularProgressDrawable: CircularProgressDrawable? = null
 
     init{
         this.activity = activity
 
         this.pacienteList = pacientesList
 
-        Log.e("Error", "${pacientesList}")
+        //Log.e("Error", "${pacientesList}")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : ProductViewHolder{
         val inflate : LayoutInflater = LayoutInflater.from(mCtx)
         val view: View = inflate.inflate(R.layout.card_view_citas_programadas, null)
-        circularProgressDrawable = CircularProgressDrawable(mCtx)
 
         return ProductViewHolder(view)
     }
@@ -45,31 +41,15 @@ class PacienteAdapter (mCtx: Context, pacientesList:List<Paciente>, activity: Ac
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int){
         val paciente: Paciente = pacienteList[position]
 
-        //Obtener los textView del layout e ingresarlos con la clase del mismo
-        Log.e("Error", paciente.getNombre())
-        Log.e("Error", paciente.getEdad().toString())
-        Log.e("Error", paciente.getAlergias())
-        Log.e("Error", paciente.getFechaCita())
-        Log.e("Error", paciente.getHoraCita())
-
         holder.nombre!!.text = paciente.getNombre()
         holder.edad!!.text = paciente.getEdad()
         holder.alergias!!.text = paciente.getAlergias()
         holder.fechaCita!!.text = paciente.getFechaCita()
         holder.horaCita!!.text = paciente.getHoraCita()
 
-        circularProgressDrawable!!.strokeWidth = 5f
-        circularProgressDrawable!!.centerRadius = 30f
-        circularProgressDrawable!!.start()
-        //Glide.with(mCtx).load("$urlImagenes${character.getCharacterImg()}.jpg")
-            //.centerCrop().placeholder(circularProgressDrawable)
-            //.error(R.drawable.ic_launcher_background)
-            //.into(holder.chacarterImg!!)
-
-
-        holder.itemView!!.setOnClickListener(){
+        holder.itemView.setOnClickListener(){
             val nombre = pacienteList[position].getNombre()
-            val edad = pacienteList[position].getEdad().toString()
+            val edad = pacienteList[position].getEdad()
             val alergias = pacienteList[position].getAlergias()
             val fechaCita = pacienteList[position].getFechaCita()
             val horaCita = pacienteList[position].getHoraCita()
@@ -103,7 +83,7 @@ class PacienteAdapter (mCtx: Context, pacientesList:List<Paciente>, activity: Ac
     }
 
     private fun showDialog(nombre:String, edad:String, alergias:String, fechaCita:String, horaCita:String){
-        iOSDialogBuilder(activity!!)
+        iOSDialogBuilder(activity)
             .setTitle("Datos Del Paciente")
             .setSubtitle("Informacion:")
             .setBoldPositiveLabel(true)

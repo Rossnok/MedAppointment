@@ -12,7 +12,7 @@ class httpRequest(callBack: (String?) -> Unit): AsyncTask<String, Unit,String>()
 
     var callBack: (String) -> Unit = callBack //guardar constructor en una variable
 
-    private val TIEMPO: Int = 50000
+    private val TIEMPO: Int = 5000
 
     override fun onPreExecute() {
         super.onPreExecute()

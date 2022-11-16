@@ -12,13 +12,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.medicalonlineapp.R
 import com.example.medicalonlineapp.http.httpRequest
 import com.example.medicalonlineapp.paciente.Paciente
 import kotlinx.android.synthetic.main.activity_main2.*
-import kotlinx.android.synthetic.main.activity_main2.view.*
 import kotlinx.android.synthetic.main.fragment_citas.*
 import org.json.JSONObject
 import com.beust.klaxon.JsonObject
@@ -29,12 +27,8 @@ import com.example.medicalonlineapp.adapters.PacienteAdapter
 class Citas : Fragment() {
 
     var swipeRefreshLayout: SwipeRefreshLayout? = null
-    val HOSTING: String = "https://aquarossnok.000webhostapp.com/getPacientesInfo.php"
-    var activity: Activity? = null
+   private val HOSTING: String = "https://aquarossnok.000webhostapp.com/getPacientesInfo.php"
     private lateinit var charactersList: ArrayList<Paciente>
-
-    var recyclerView: RecyclerView? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,13 +43,14 @@ class Citas : Fragment() {
         return inflater.inflate(R.layout.fragment_citas, container, false)
     }
 
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         swipeRefreshLayout = swipeToRefreshLayout
 
         recyclerCitas.setHasFixedSize(true)
-        recyclerCitas.layoutManager = LinearLayoutManager(this.getActivity())
+        recyclerCitas.layoutManager = LinearLayoutManager(this.activity)
         cargarCitas()
 
         swipeRefreshLayout!!.setOnRefreshListener {
@@ -87,11 +82,11 @@ class Citas : Fragment() {
                     println("it $it")
                 }.execute("POST", HOSTING, json.toString())
 
-                val parser:Parser = Parser()
+                val parser = Parser()
                 val stringBuilder: StringBuilder = StringBuilder(string.get())
                 val json2: JsonObject = parser.parse(stringBuilder) as JsonObject
 
-                charactersList = ArrayList<Paciente>()
+                charactersList = ArrayList()
 
                 if(json2.int("success") == 1){
                     val JsonFinal = JSONObject(string.get())
@@ -118,7 +113,7 @@ class Citas : Fragment() {
                 }
 
             }catch (ex:Exception){
-                Toast.makeText(this.getActivity(), "ha ocurrido un problema", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.activity, "ha ocurrido un problema", Toast.LENGTH_SHORT).show()
                 ex.printStackTrace()
                 swipeRefreshLayout!!.isRefreshing = false
             }
