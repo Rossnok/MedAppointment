@@ -33,7 +33,7 @@ class PacienteAdapter (mCtx: Context, pacientesList:List<Paciente>, activity: Ac
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : ProductViewHolder{
         val inflate : LayoutInflater = LayoutInflater.from(mCtx)
-        val view: View = inflate.inflate(R.layout.card_view_citas_programadas, null)
+        val view: View = inflate.inflate(R.layout.card_view_citas_programadas, parent,false)
 
         return ProductViewHolder(view)
     }

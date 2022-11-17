@@ -49,7 +49,7 @@ class Citas : Fragment() {
 
         swipeRefreshLayout = swipeToRefreshLayout
 
-        recyclerCitas.setHasFixedSize(true)
+        //recyclerCitas.setHasFixedSize(true)
         recyclerCitas.layoutManager = LinearLayoutManager(this.activity)
         cargarCitas()
 

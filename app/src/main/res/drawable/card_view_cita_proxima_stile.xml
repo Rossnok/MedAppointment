@@ -10,8 +10,6 @@
                 android:centerColor="#D33792F1"
                 android:endColor="#397DF4"
                 />
-            <stroke android:color="@color/black"
-                android:width="3dp"/>
         </shape>
     </item>
 </selector>
