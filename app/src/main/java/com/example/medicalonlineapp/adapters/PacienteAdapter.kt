@@ -82,7 +82,7 @@ class PacienteAdapter (mCtx: Context, pacientesList:List<Paciente>, activity: Ac
 
     }
 
-    private fun showDialog(nombre:String, edad:String, alergias:String, fechaCita:String, horaCita:String){
+    private fun showDialog(nombre:String, edad:String, alergias:String, fechaCita:String, horaCita:String) {
         iOSDialogBuilder(activity)
             .setTitle("Datos Del Paciente")
             .setSubtitle("Informacion:")
@@ -104,4 +104,5 @@ class PacienteAdapter (mCtx: Context, pacientesList:List<Paciente>, activity: Ac
             }
             .build().show()
     }
+
 }

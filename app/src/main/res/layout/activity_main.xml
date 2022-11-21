@@ -1,105 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_login"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/backdronud"
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="321dp"
-        android:layout_height="326dp"
-        android:layout_marginTop="230dp"
-        android:layout_marginBottom="282dp"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp"
+        android:background="@drawable/custom_edittext">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp">
-
+            android:layout_gravity="center_horizontal"
+            android:padding="24dp">
             <TextView
-                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:fontFamily="@font/roboto_bold"
-                android:paddingLeft="24dp"
-                android:text="Bienvenido"
+                android:text="Ingresar"
+                android:id="@+id/loginText"
+                android:textSize="36sp"
                 android:textAlignment="center"
-                android:textSize="25dp" />
-
+                android:textStyle="bold"
+                android:textColor="@color/principal"/>
             <EditText
-                android:id="@+id/txtUsuario"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="24dp"
-                android:background="@drawable/proyect_edittext_components"
-                android:ems="10"
+                android:layout_height="50dp"
+                android:id="@+id/username"
+                android:background="@drawable/custom_edittext"
+                android:drawableLeft="@drawable/ic_baseline_account_circle_24"
+                android:drawablePadding="8dp"
                 android:hint="Usuario"
-                android:inputType="textPersonName"
-                android:paddingLeft="16dp"
-                android:paddingTop="12dp"
-                android:paddingBottom="12dp" />
-
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="40dp"/>
             <EditText
-                android:id="@+id/txtPass"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="24dp"
-                android:background="@drawable/proyect_edittext_components"
-                android:ems="10"
+                android:layout_height="50dp"
+                android:id="@+id/password"
+                android:background="@drawable/custom_edittext"
+                android:drawableLeft="@drawable/ic_baseline_lock_24"
+                android:drawablePadding="8dp"
                 android:hint="Contraseña"
+                android:padding="8dp"
                 android:inputType="textPassword"
-                android:paddingLeft="16dp"
-                android:paddingTop="12dp"
-                android:paddingBottom="12dp" />
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="20dp"/>
 
             <Button
-                android:id="@+id/btnLogin"
+                android:id="@+id/loginButton"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:background="@drawable/login_button"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Ingresar"
+                android:layout_height="49dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/principal"
+                android:text="Entrar"
+                android:textSize="20sp"
                 android:textColor="@color/white"
-                android:textSize="19dp" />
-
+                android:background="@drawable/login_button"/>
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="250dp"
-        android:textColor="#0086E6"
-        android:text="¿Aún no te registras? Registrate aquí."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:padding="8dp"
+        android:text="¿Aún no te has registrado? Hazlo aquí"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:id="@+id/signupText"
+        android:textColor="@color/principal"
+        android:layout_marginBottom="20dp"/>
 
-    <TextView
-        android:id="@+id/txtSingIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="147dp"
-        android:layout_marginBottom="197dp"
-        android:text="o Resgistrate aquí."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
