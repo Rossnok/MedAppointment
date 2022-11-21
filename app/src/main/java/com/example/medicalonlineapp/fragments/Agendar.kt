@@ -13,9 +13,6 @@ import kotlinx.android.synthetic.main.fragment_agendar.*
 
 
 class Agendar : Fragment() {
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -53,6 +50,5 @@ class Agendar : Fragment() {
      private fun onDateSelected(day:Int, month:Int, year:Int){
         txtFechaCita.setText("$day/${month+1}/$year")
     }
-
 
 }
