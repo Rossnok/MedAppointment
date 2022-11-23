@@ -49,7 +49,7 @@ class Citas : Fragment() {
 
         swipeRefreshLayout = swipeToRefreshLayout
 
-        //recyclerCitas.setHasFixedSize(true)
+        recyclerCitas.setHasFixedSize(true)
         recyclerCitas.layoutManager = LinearLayoutManager(this.activity)
         cargarCitas()
 
@@ -107,9 +107,9 @@ class Citas : Fragment() {
                     val adapter = PacienteAdapter(this.requireActivity(), charactersList, this.requireActivity())
                     recyclerCitas.adapter = adapter
                 }else if(json2.int("success") == 0){
-                    Toast.makeText(linearLayout.context, "No se encontraron resultados", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this.activity, "No se encontraron resultados", Toast.LENGTH_SHORT).show()
                 }else{
-                    Toast.makeText(linearLayout.context, "Problemas en la conexion", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this.activity, "Problemas en la conexion", Toast.LENGTH_SHORT).show()
                 }
 
             }catch (ex:Exception){

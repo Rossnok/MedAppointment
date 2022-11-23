@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import com.example.medicalonlineapp.principalView.PrincipalView
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
@@ -14,7 +13,10 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 class MainActivity : AppCompatActivity() {
     private var confirmed:Boolean = false
     private var btnLogin: Button? = null
-    private var txtSingin: TextView? = null
+    //private var btnSingin: Button? = null
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
@@ -24,15 +26,10 @@ class MainActivity : AppCompatActivity() {
         Log.d("este es el ejemplo de la actualizacion", "el mensaje es si funciono")
 
         btnLogin = findViewById(R.id.loginButton)
-        txtSingin = findViewById(R.id.signupText)
+        //btnSingin = findViewById(R.id.btnRegistrar)
         supportActionBar!!.hide()
-
         btnLogin!!.setOnClickListener(){
             confirmedUser()
-        }
-
-        txtSingin!!.setOnClickListener(){
-            register()
         }
     }
 

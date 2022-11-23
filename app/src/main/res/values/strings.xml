@@ -7,4 +7,43 @@
     </style>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="btn_angendar">AGENDAR</string>
+    
+    <string-array name="especialidades_medicas">
+        <item>Especialidad medica</item>
+        <item>Anestesiología</item>
+        <item>Anatomía Patológica</item>
+        <item>Cardiología Clínica</item>
+        <item>Cardiología Intervencionista</item>
+        <item>Cirugía Pediátrica</item>
+        <item>Cirugía General</item>
+        <item>Cirugía Plástica y Reconstructiva</item>
+        <item>Angiología y Cirugía Vascular y Endovascular</item>
+        <item>Dermatología</item>
+        <item>Endoscopia del Aparato Digestivo</item>
+        <item>Gastroenterología</item>
+        <item>Ginegología y Obstetricia</item>
+        <item>Hematología</item>
+        <item>Infectología de Adulto</item>
+        <item>Medicina de Rehabilitación</item>
+        <item>Medicina Interna</item>
+        <item>Nefrología</item>
+        <item>Neurología de Adultos</item>
+        <item>Neumología</item>
+        <item>Oftalmología</item>
+        <item>Ortopedia</item>
+        <item>Otorrinolaringología</item>
+        <item>Patología Clínica</item>
+        <item>Pediatría</item>
+        <item>Psiquiatría General</item>
+        <item>Medicina Crítica</item>
+        <item>Urología</item>
+        <item>Cardiología Intervencionista</item>
+        <item>Neumología</item>
+        <item>Hematología</item>
+        <item>Cirugía Oncológica</item>
+        <item>Oncología Médica</item>
+        <item>Oncología Pediátrica</item>
+        <item>Radio-Oncología</item>
+        <item>Cirugía Neurológica</item>
+    </string-array>
 </resources>
