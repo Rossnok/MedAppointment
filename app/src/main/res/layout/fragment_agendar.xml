@@ -5,38 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.Agendar">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.7"
+            android:src="@drawable/agenda_cita_image" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="bottom"
-        >
+        android:gravity="bottom">
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginBottom="30dp"
-            android:background="#A3C5F3">
-
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="100dp"
-                android:src="@drawable/agenda_cita_image"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="0dp"
-                android:fontFamily="@font/roboto_bold"
-                android:text="AGENDAR CITA"
-                android:textSize="24dp"
-                android:ems="10"/>
-        </LinearLayout>
+            android:text="Agendar una cita"
+            android:textAlignment="center"
+            android:textSize="24dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="#0077CC"
+            android:layout_marginBottom="16dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -52,7 +52,7 @@
         <EditText
             android:id="@+id/txtNombreAgendar"
             android:layout_width="match_parent"
-            android:layout_height="42dp"
+            android:layout_height="38dp"
             android:inputType="textPersonName"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
@@ -87,7 +87,7 @@
                 <EditText
                     android:id="@+id/txtSexo"
                     android:layout_width="match_parent"
-                    android:layout_height="42dp"
+                    android:layout_height="38dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
@@ -95,9 +95,8 @@
                     android:paddingLeft="16dp"
                     android:paddingTop="12dp"
                     android:ems="8"
-                    android:paddingBottom="12dp"
-                    android:clickable="false"
-                    android:focusable="false"/>
+                    android:paddingBottom="12dp"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -119,7 +118,7 @@
                 <EditText
                     android:id="@+id/txtSeguroSocial"
                     android:layout_width="match_parent"
-                    android:layout_height="42dp"
+                    android:layout_height="38dp"
                     android:inputType="time"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
@@ -148,8 +147,8 @@
         <EditText
             android:id="@+id/txtDomicilio"
             android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:inputType="time"
+            android:layout_height="38dp"
+            android:inputType="text"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
@@ -157,7 +156,8 @@
             android:ems="10"
             android:paddingLeft="16dp"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"/>
+            android:paddingBottom="12dp"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -182,7 +182,7 @@
                 <EditText
                     android:id="@+id/txtFechaCita"
                     android:layout_width="match_parent"
-                    android:layout_height="42dp"
+                    android:layout_height="38dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
@@ -214,7 +214,7 @@
                 <EditText
                     android:id="@+id/txtHoraCita"
                     android:layout_width="match_parent"
-                    android:layout_height="42dp"
+                    android:layout_height="38dp"
                     android:inputType="time"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
@@ -240,7 +240,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Numero de telefono"
+                    android:text="Número de teléfono"
                     android:layout_marginBottom="4dp"
                     android:paddingLeft="10dp"
                     android:layout_marginLeft="16dp"
@@ -251,7 +251,7 @@
                 <EditText
                     android:id="@+id/txtTelefono"
                     android:layout_width="match_parent"
-                    android:layout_height="42dp"
+                    android:layout_height="38dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
@@ -259,7 +259,8 @@
                     android:paddingLeft="16dp"
                     android:paddingTop="12dp"
                     android:paddingBottom="12dp"
-                    android:ems="8"/>
+                    android:ems="8"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -281,7 +282,7 @@
                 <EditText
                     android:id="@+id/txtFechaNacimiento"
                     android:layout_width="match_parent"
-                    android:layout_height="42dp"
+                    android:layout_height="38dp"
                     android:inputType="time"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
@@ -310,8 +311,34 @@
         <EditText
             android:id="@+id/txtLocalidad"
             android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:inputType="time"
+            android:layout_height="38dp"
+            android:inputType="text"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/proyect_edittext_components"
+            android:ems="10"
+            android:paddingLeft="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Observaciones, alergias, etc."
+            android:layout_marginBottom="4dp"
+            android:paddingLeft="10dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="16dp"
+            />
+
+        <EditText
+            android:id="@+id/txtObservaciones"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:inputType="text"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
@@ -326,7 +353,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_angendar"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/login_button"
             android:fontFamily="@font/roboto_bold"
             android:textSize="19dp"
@@ -334,4 +361,5 @@
             android:layout_marginRight="16dp"
             android:layout_marginLeft="16dp"/>
     </LinearLayout>
+    </ScrollView>
 </FrameLayout>
