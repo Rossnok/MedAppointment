@@ -11,7 +11,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.medicalonlineapp.R
 import com.example.medicalonlineapp.http.httpRequest
@@ -106,6 +109,12 @@ class Citas : Fragment() {
 
                     val adapter = PacienteAdapter(this.requireActivity(), charactersList, this.requireActivity())
                     recyclerCitas.adapter = adapter
+
+                    /*val decorator = DividerItemDecoration(this.activity,RecyclerView.VERTICAL)
+                    ResourcesCompat.getDrawable(resources, R.drawable.card_view_divider, null)?.let {
+                        decorator.setDrawable(it)
+                    }
+                    recyclerCitas.addItemDecoration(decorator)*/
                 }else if(json2.int("success") == 0){
                     Toast.makeText(this.activity, "No se encontraron resultados", Toast.LENGTH_SHORT).show()
                 }else{

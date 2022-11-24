@@ -2,23 +2,25 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    app:cardBackgroundColor="@android:color/transparent">
 
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
+    android:background="@drawable/card_view_cita_proxima_stile"
+    android:layout_gravity="center_horizontal"
+    android:elevation="5dp"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
-    android:layout_marginBottom="8dp"
-    android:background="@drawable/card_view_cita_proxima_stile"
-    android:layout_gravity="center_horizontal">
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp">
 
     <ImageView
-        android:layout_width="80dp"
+        android:layout_width="100dp"
         android:layout_height="120dp"
-        android:layout_marginRight="8dp"
-        android:src="@drawable/doctor"/>
+        android:src="@drawable/proximas_citas_background"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +38,8 @@
             android:layout_marginBottom="0dp"
             android:fontFamily="@font/roboto_bold"
             android:text="Sergio Rosas Mendez"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/edadPacienteCardViewCitas"
@@ -45,7 +48,8 @@
             android:layout_marginBottom="0dp"
             android:fontFamily="@font/roboto_medium"
             android:text="26 Años"
-            android:textSize="14dp"/>
+            android:textSize="14dp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/alergiasPacienteCardViewCitas"
@@ -54,7 +58,8 @@
             android:layout_marginBottom="0dp"
             android:fontFamily="@font/roboto_medium"
             android:text="Alergias: penicilina"
-            android:textSize="14dp"/>
+            android:textSize="14dp"
+            android:textColor="@color/black"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -71,7 +76,8 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/roboto_mediumitalic"
                 android:text="25/10/2022"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/horaPacienteCardViewCitas"
@@ -80,9 +86,9 @@
                 android:layout_marginLeft="16dp"
                 android:fontFamily="@font/roboto_mediumitalic"
                 android:text="13:45 PM"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:textColor="@color/black"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
-
 </androidx.cardview.widget.CardView>
