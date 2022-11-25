@@ -24,20 +24,23 @@
         <entry key="..\:/Users/Alberto Losuna/AndroidStudioProjects/MedicalOnlineApp/app/src/main/res/menu/principal_view_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Alberto Losuna/AndroidStudioProjects/MedicalOnlineApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/Alberto Losuna/AndroidStudioProjects/MedicalOnlineApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
-        <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedAppointment/app/src/main/res/drawable-v24/login_button.xml" value="0.1925" />
-        <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedAppointment/app/src/main/res/drawable/agendar_background_img.xml" value="0.2545" />
-        <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedAppointment/app/src/main/res/drawable/card_view_cita_proxima_stile.xml" value="0.249" />
-        <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedAppointment/app/src/main/res/drawable/card_view_divider.xml" value="0.1205" />
-        <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedAppointment/app/src/main/res/drawable/proyect_edittext_components.xml" value="0.249" />
-        <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedAppointment/app/src/main/res/drawable/register_button.xml" value="0.121" />
-        <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedAppointment/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedAppointment/app/src/main/res/layout/activity_main2.xml" value="0.264" />
-        <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedAppointment/app/src/main/res/layout/activity_principal_view.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedAppointment/app/src/main/res/layout/card_view_citas_programadas.xml" value="0.25" />
-        <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedAppointment/app/src/main/res/layout/fragment_agendar.xml" value="0.264" />
-        <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedAppointment/app/src/main/res/layout/fragment_citas.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedAppointment/app/src/main/res/layout/fragment_citas_anteriores.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedAppointment/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/Alberto Losuna/StudioProjects/MedAppointment/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.188" />
+        <entry key="..\:/Users/Alberto Losuna/StudioProjects/MedAppointment/app/src/main/res/drawable-v24/login_button.xml" value="0.188" />
+        <entry key="..\:/Users/Alberto Losuna/StudioProjects/MedAppointment/app/src/main/res/drawable/custom_edittext.xml" value="0.188" />
+        <entry key="..\:/Users/Alberto Losuna/StudioProjects/MedAppointment/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.188" />
+        <entry key="..\:/Users/Alberto Losuna/StudioProjects/MedAppointment/app/src/main/res/drawable/ic_baseline_credit_card_24.xml" value="0.2115" />
+        <entry key="..\:/Users/Alberto Losuna/StudioProjects/MedAppointment/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.188" />
+        <entry key="..\:/Users/Alberto Losuna/StudioProjects/MedAppointment/app/src/main/res/drawable/ic_baseline_password_24.xml" value="0.188" />
+        <entry key="..\:/Users/Alberto Losuna/StudioProjects/MedAppointment/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.188" />
+        <entry key="..\:/Users/Alberto Losuna/StudioProjects/MedAppointment/app/src/main/res/drawable/register_button.xml" value="0.188" />
+        <entry key="..\:/Users/Alberto Losuna/StudioProjects/MedAppointment/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Alberto Losuna/StudioProjects/MedAppointment/app/src/main/res/layout/activity_main2.xml" value="0.25" />
+        <entry key="..\:/Users/Alberto Losuna/StudioProjects/MedAppointment/app/src/main/res/layout/activity_principal_view.xml" value="0.1" />
+        <entry key="..\:/Users/Alberto Losuna/StudioProjects/MedAppointment/app/src/main/res/layout/card_view_citas_programadas.xml" value="0.33" />
+        <entry key="..\:/Users/Alberto Losuna/StudioProjects/MedAppointment/app/src/main/res/layout/fragment_agendar.xml" value="0.1" />
+        <entry key="..\:/Users/Alberto Losuna/StudioProjects/MedAppointment/app/src/main/res/layout/fragment_citas.xml" value="0.1875" />
+        <entry key="..\:/Users/Alberto Losuna/StudioProjects/MedAppointment/app/src/main/res/layout/fragment_home.xml" value="0.21481481481481482" />
+        <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedAppointment/app/src/main/res/layout/fragment_agendar.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedicalOnlineApp/app/src/main/res/drawable-v24/login_button.xml" value="0.203" />
         <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedicalOnlineApp/app/src/main/res/drawable/calendar_style.xml" value="0.2385" />
         <entry key="..\:/Users/Onlyr/AndroidStudioProjects/MedicalOnlineApp/app/src/main/res/drawable/proyect_edittext_components.xml" value="0.203" />
@@ -56,12 +59,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.2" />
-      </ProjectState>
-    </option>
   </component>
 </project>

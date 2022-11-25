@@ -11,7 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="24dp">
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,34 +22,43 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="101dp"
+                android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:paddingLeft="10pt"
                 android:src="@drawable/medappv2" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="16dp"
-                android:fontFamily="@font/roboto_bold"
-                android:text="¡Hola! @nombreusuario"
-                android:textAlignment="center"
-                android:textSize="24dp" />
         </LinearLayout>
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="16dp"
-        android:background="#0068b3"
-        android:maxDate="01/01/2050"
-        android:minDate="01/01/2022"
-        android:theme="@style/CalenderViewCustom" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="296dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="¡Hola! @nombreusuario"
+            android:textAlignment="center"
+            android:textSize="24dp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp"
+            android:background="@drawable/custom_edittext">
+
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#0068b3"
+                android:maxDate="01/01/2050"
+                android:minDate="01/01/2022"
+                android:theme="@style/CalenderViewCustom"
+                />
+
+        </androidx.cardview.widget.CardView>
+
 
 </LinearLayout>
 </FrameLayout>

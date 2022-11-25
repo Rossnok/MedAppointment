@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import com.example.medicalonlineapp.principalView.PrincipalView
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
@@ -13,6 +14,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 class MainActivity : AppCompatActivity() {
     private var confirmed:Boolean = false
     private var btnLogin: Button? = null
+    private var txtSingUp: TextView? = null
     //private var btnSingin: Button? = null
 
 
@@ -27,9 +29,15 @@ class MainActivity : AppCompatActivity() {
 
         btnLogin = findViewById(R.id.loginButton)
         //btnSingin = findViewById(R.id.btnRegistrar)
+        txtSingUp = findViewById(R.id.signupText)
+
         supportActionBar!!.hide()
         btnLogin!!.setOnClickListener(){
             confirmedUser()
+        }
+
+        txtSingUp!!.setOnClickListener(){
+            register()
         }
     }
 

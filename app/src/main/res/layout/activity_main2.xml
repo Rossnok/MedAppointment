@@ -32,6 +32,20 @@
                 android:textAlignment="center"
                 android:textStyle="bold"
                 android:textColor="@color/principal"/>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:text="¡Bievenido a MedApp!" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:text="Unete y convierte tus citas en una tarea facil de administrar. " />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -43,7 +57,7 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="40dp"/>
+                android:layout_marginTop="30dp"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -62,7 +76,7 @@
                 android:layout_height="50dp"
                 android:id="@+id/name"
                 android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/ic_baseline_lock_24"
+                android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:drawablePadding="8dp"
                 android:hint="Nombre completo"
                 android:padding="8dp"
@@ -75,7 +89,7 @@
                 android:layout_height="50dp"
                 android:id="@+id/cedule"
                 android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/ic_baseline_lock_24"
+                android:drawableLeft="@drawable/ic_baseline_credit_card_24"
                 android:drawablePadding="8dp"
                 android:hint="Cedula profesional"
                 android:padding="8dp"
@@ -120,6 +134,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:background="@drawable/login_button"/>
+
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
