@@ -125,7 +125,7 @@
                 android:layout_marginTop="20dp"/>
 
             <Button
-                android:id="@+id/loginButton"
+                android:id="@+id/registerButton"
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
                 android:layout_marginTop="30dp"
