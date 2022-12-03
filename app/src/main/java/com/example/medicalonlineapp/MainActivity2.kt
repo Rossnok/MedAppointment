@@ -28,13 +28,21 @@ class MainActivity2 : AppCompatActivity() {
         supportActionBar!!.hide()
 
         registerButton.setOnClickListener{
-            if(!username.text.isNullOrEmpty() && !password.text.isNullOrEmpty() && !name.text.isNullOrEmpty()
-                && !cedule.text.isNullOrEmpty() && !phone.text.isNullOrEmpty()){
+            if(!username.text.isNullOrEmpty() && !password.text.isNullOrEmpty()
+                && !cedule.text.isNullOrEmpty() && !phone.text.isNullOrEmpty() &&
+                    !dependence.text.isNullOrEmpty() && !specialty.text.isNullOrEmpty()){
 
                 val json = JSONObject()
+                json.put("insertMedico", true)
+                json.put("Nombre_medico",username.text)
+                json.put("Pass", password.text)
+                json.put("Cedula_profesional", cedule.text)
+                json.put("Especialidad_medico", specialty.text)
+                json.put("Numero_telefonico_medico", phone.text)
+                json.put("Dependencia", dependence.text)
 
-                progresAsyncTask = progresAsyncTask
-                progresAsyncTask!!.execute("POST", hosting + "InsertMedico.php", json.toString())
+                progresAsyncTask = ProgressAsyncTask()
+                progresAsyncTask!!.execute("POST", hosting +"InsertMedico.php", json.toString())
 
             }else{
                 Toast.makeText(applicationContext, "Campo vacio, compruebe que todos los campos se hayan llenado correctamente", Toast.LENGTH_SHORT).show()

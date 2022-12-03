@@ -21,14 +21,12 @@ class PacienteAdapter (mCtx: Context, pacientesList:List<Paciente>, activity: Ac
     private val mCtx = mCtx
     private val activity:Activity
 
-    private val pacienteList : List<Paciente>
+    private var pacienteList : List<Paciente>
 
     init{
         this.activity = activity
 
         this.pacienteList = pacientesList
-
-        //Log.e("Error", "${pacientesList}")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : ProductViewHolder{
@@ -103,6 +101,11 @@ class PacienteAdapter (mCtx: Context, pacientesList:List<Paciente>, activity: Ac
                 dialog.dismiss()
             }
             .build().show()
+    }
+
+    fun updateList(pacientesList:List<Paciente>){
+        this.pacienteList = pacientesList
+        notifyDataSetChanged()
     }
 
 }

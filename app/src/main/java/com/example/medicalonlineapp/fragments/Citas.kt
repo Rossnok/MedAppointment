@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,8 +31,9 @@ import com.example.medicalonlineapp.adapters.PacienteAdapter
 class Citas : Fragment() {
 
     var swipeRefreshLayout: SwipeRefreshLayout? = null
-   private val HOSTING: String = "https://aquarossnok.000webhostapp.com/getPacientesInfo.php"
+    private val HOSTING: String = "https://aquarossnok.000webhostapp.com/getPacientesInfo.php"
     private lateinit var charactersList: ArrayList<Paciente>
+    private lateinit var adapter:PacienteAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,11 +56,20 @@ class Citas : Fragment() {
 
         recyclerCitas.setHasFixedSize(true)
         recyclerCitas.layoutManager = LinearLayoutManager(this.activity)
-        cargarCitas()
+
 
         swipeRefreshLayout!!.setOnRefreshListener {
             cargarCitas()
         }
+
+        editFilter.addTextChangedListener { nombreFilter ->
+            val citasFiltradas = this.charactersList.filter { cita ->
+                cita.getNombre().toLowerCase().contains(nombreFilter.toString().toLowerCase())
+            }
+            adapter.updateList(citasFiltradas)
+        }
+
+        cargarCitas()
     }
 
     private fun isOnline(): Boolean{
@@ -107,7 +118,7 @@ class Citas : Fragment() {
                         charactersList.add(Paciente(nombre, edad, NoSeguro,  alergias, fechaCita, horaCita))
                     }
 
-                    val adapter = PacienteAdapter(this.requireActivity(), charactersList, this.requireActivity())
+                    adapter = PacienteAdapter(this.requireActivity(), charactersList, this.requireActivity())
                     recyclerCitas.adapter = adapter
 
                     /*val decorator = DividerItemDecoration(this.activity,RecyclerView.VERTICAL)

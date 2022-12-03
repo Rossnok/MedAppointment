@@ -53,8 +53,10 @@
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_account_circle_24"
                 android:drawablePadding="8dp"
-                android:hint="Usuario"
+                android:hint="Nombre Completo"
                 android:padding="8dp"
+                android:singleLine="true"
+                android:maxLines="1"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:layout_marginTop="30dp"/>
@@ -67,6 +69,8 @@
                 android:drawablePadding="8dp"
                 android:hint="Contraseña"
                 android:padding="8dp"
+                android:singleLine="true"
+                android:maxLines="1"
                 android:inputType="textPassword"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
@@ -74,13 +78,13 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/name"
+                android:id="@+id/dependence"
                 android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawableLeft="@drawable/ic_baseline_local_hospital_24"
                 android:drawablePadding="8dp"
-                android:hint="Nombre completo"
+                android:hint="Hospital/Clinica"
                 android:padding="8dp"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:layout_marginTop="20dp"/>
@@ -93,23 +97,27 @@
                 android:drawablePadding="8dp"
                 android:hint="Cedula profesional"
                 android:padding="8dp"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:layout_marginTop="20dp"/>
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/title"
+                android:id="@+id/specialty"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_work_24"
                 android:drawablePadding="8dp"
+                android:singleLine="true"
+                android:maxLines="1"
                 android:hint="Especialidad"
                 android:padding="8dp"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:layout_marginTop="20dp"/>
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -119,6 +127,8 @@
                 android:drawablePadding="8dp"
                 android:hint="Número de telefono"
                 android:padding="8dp"
+                android:singleLine="true"
+                android:maxLines="1"
                 android:inputType="text|phone"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
@@ -134,12 +144,6 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:background="@drawable/login_button"/>
-
-
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
-
-
-
 </LinearLayout>
