@@ -21,7 +21,8 @@
             android:exported="false" />
         <activity
             android:name=".principalView.PrincipalView"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.App.Starting"

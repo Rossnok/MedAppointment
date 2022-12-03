@@ -1,10 +1,12 @@
 package com.example.medicalonlineapp
 
 import android.content.Intent
+import android.opengl.Visibility
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -41,7 +43,6 @@ class MainActivity : AppCompatActivity() {
 
                progressAsyncTask = ProgressAsyncTask()
                progressAsyncTask!!.execute("POST", hosting +"UserLogin.php", json.toString())
-
            }else{
                Toast.makeText(applicationContext, "Asegurate de llenar los campos necesarios", Toast.LENGTH_SHORT).show()
            }
@@ -62,6 +63,8 @@ class MainActivity : AppCompatActivity() {
         val TIMEOUT = 50000
 
         override fun onPreExecute() {
+            loginButton.isEnabled = false
+            progresLoginBar.visibility = View.VISIBLE
             super.onPreExecute()
         }
 
@@ -131,20 +134,36 @@ class MainActivity : AppCompatActivity() {
                 val stringBuilder: StringBuilder = StringBuilder(result)
 
                 val json2: JsonObject = parser.parse(stringBuilder) as JsonObject
-                if (json2.int("success") == 1 && json2.int("matchFound") == 1) {
-                    Toast.makeText(applicationContext, "Bienvenido!", Toast.LENGTH_SHORT).show()
-                    var intent: Intent = Intent(applicationContext, PrincipalView::class.java)
-                    startActivity(intent)
-                }else if (json2.int("success") == 0 || json2.int("matchFound") == 0){
-                    Toast.makeText(applicationContext, "Nombre o Contraseña incorrecto, Compruebe sus credenciales", Toast.LENGTH_SHORT).show()
+                if (json2.int("success") == 1) {
+                    val jsonFinal = JSONObject(result)
+                    val datosUsuario = jsonFinal.getJSONArray("credenciales")
+                    val usuario = datosUsuario.getJSONObject(0).getString("Nombre_medico")
+                    val contra = datosUsuario.getJSONObject(0).getString("Pass")
+                    Log.e("user", usuario)
+                    Log.e("user", contra)
+                    Log.e("user", username.text.toString())
+                    Log.e("user", password.text.toString())
+
+                    if(username.text.toString() == usuario.toString() && password.text.toString() == contra.toString()){
+                        Toast.makeText(applicationContext, "Bienvenido!", Toast.LENGTH_SHORT).show()
+                        var intent: Intent = Intent(applicationContext, PrincipalView::class.java)
+                        startActivity(intent)
+                    }else{
+                        Toast.makeText(applicationContext, "Comprueba tus credenciales e intentalo nuevamente", Toast.LENGTH_SHORT).show()
+                    }
+                }else if (json2.int("success") == 0 ){
+                    Toast.makeText(applicationContext, "Usuario no encontrado", Toast.LENGTH_SHORT).show()
                 }
             }
             super.onPostExecute(result)
-
+            loginButton.isEnabled = true
+            progresLoginBar.visibility = View.INVISIBLE
         }
 
         override fun onCancelled() {
             super.onCancelled()
+            progresLoginBar.visibility = View.INVISIBLE
+            loginButton.isEnabled = true
         }
     }
 }

@@ -3,14 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context=".fragments.Agendar">
-
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
         <ImageView
             android:layout_width="match_parent"
@@ -28,7 +21,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="bottom"
-            android:layout_marginBottom="16dp">
+           android:layout_gravity="center">
 
             <TextView
                 android:layout_width="match_parent"
@@ -49,7 +42,8 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:fontFamily="@font/roboto_medium"
-                android:textSize="16dp"/>
+                android:textSize="16dp"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/txtNombreAgendar"
@@ -82,7 +76,8 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
                         android:fontFamily="@font/roboto_medium"
-                        android:textSize="16dp"/>
+                        android:textSize="16dp"
+                        android:textColor="@color/black"/>
 
                     <Spinner
                         android:id="@+id/txtSexo"
@@ -112,7 +107,7 @@
                         android:layout_marginRight="16dp"
                         android:fontFamily="@font/roboto_medium"
                         android:textSize="16dp"
-                        />
+                        android:textColor="@color/black"/>
 
                     <EditText
                         android:id="@+id/txtSeguroSocial"
@@ -138,7 +133,7 @@
                 android:layout_marginRight="16dp"
                 android:fontFamily="@font/roboto_medium"
                 android:textSize="16dp"
-                />
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/txtDomicilio"
@@ -162,16 +157,18 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_weight="1">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Fecha de la cita"
-                        android:layout_marginBottom="4dp"
-                        android:paddingLeft="10dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:layout_marginBottom="4dp"
                         android:fontFamily="@font/roboto_medium"
-                        android:textSize="16dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Fecha de la cita"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"/>
 
                     <EditText
                         android:id="@+id/txtFechaCita"
@@ -201,7 +198,8 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
                         android:fontFamily="@font/roboto_medium"
-                        android:textSize="16dp" />
+                        android:textSize="16dp"
+                        android:textColor="@color/black"/>
 
                     <Spinner
                         android:id="@+id/txtHoraCita"
@@ -236,7 +234,8 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
                         android:fontFamily="@font/roboto_medium"
-                        android:textSize="16dp"/>
+                        android:textSize="16dp"
+                        android:textColor="@color/black"/>
 
                     <EditText
                         android:id="@+id/txtTelefono"
@@ -265,7 +264,7 @@
                         android:layout_marginRight="16dp"
                         android:fontFamily="@font/roboto_medium"
                         android:textSize="16dp"
-                        />
+                        android:textColor="@color/black"/>
 
                     <EditText
                         android:id="@+id/txtFechaNacimiento"
@@ -294,7 +293,7 @@
                 android:layout_marginRight="16dp"
                 android:fontFamily="@font/roboto_medium"
                 android:textSize="16dp"
-                />
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/txtLocalidad"
@@ -317,7 +316,8 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:fontFamily="@font/roboto_medium"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/txtObservaciones"
@@ -345,6 +345,6 @@
                 android:layout_marginLeft="16dp"/>
         </LinearLayout>
         </ScrollView>
-    </FrameLayout>
+
 
 </FrameLayout>
