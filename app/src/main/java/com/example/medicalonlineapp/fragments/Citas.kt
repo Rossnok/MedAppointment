@@ -68,7 +68,6 @@ class Citas : Fragment() {
             }
             adapter.updateList(citasFiltradas)
         }
-
         cargarCitas()
     }
 
@@ -121,11 +120,6 @@ class Citas : Fragment() {
                     adapter = PacienteAdapter(this.requireActivity(), charactersList, this.requireActivity())
                     recyclerCitas.adapter = adapter
 
-                    /*val decorator = DividerItemDecoration(this.activity,RecyclerView.VERTICAL)
-                    ResourcesCompat.getDrawable(resources, R.drawable.card_view_divider, null)?.let {
-                        decorator.setDrawable(it)
-                    }
-                    recyclerCitas.addItemDecoration(decorator)*/
                 }else if(json2.int("success") == 0){
                     Toast.makeText(this.activity, "No se encontraron resultados", Toast.LENGTH_SHORT).show()
                 }else{

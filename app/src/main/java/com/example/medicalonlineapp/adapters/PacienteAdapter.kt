@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.medicalonlineapp.R
 import com.example.medicalonlineapp.fragments.Agendar
+import com.example.medicalonlineapp.fragments.GoogleMapsInfo
 import com.example.medicalonlineapp.paciente.Paciente
 import com.gdacciaro.iOSDialog.iOSDialogBuilder
 
@@ -88,13 +89,8 @@ class PacienteAdapter (mCtx: Context, pacientesList:List<Paciente>, activity: Ac
             .setCancelable(true)
             .setPositiveListener("consultar"){ dialog ->
 
-                val intent = Intent(activity, Agendar::class.java)
-                intent.putExtra("nom", nombre)
-                intent.putExtra("eda", edad)
-                intent.putExtra("alerg", alergias)
-                intent.putExtra("fecha", fechaCita)
-                intent.putExtra("hora", horaCita)
-
+                val intent = Intent(activity, GoogleMapsInfo::class.java)
+                activity.startActivity(intent)
                 dialog.dismiss()
             }
             .setNegativeListener("Cancelar"){dialog ->
