@@ -29,7 +29,7 @@ import com.example.medicalonlineapp.adapters.PacienteAdapter
 class Citas : Fragment() {
 
     var swipeRefreshLayout: SwipeRefreshLayout? = null
-    private val HOSTING: String = "https://aquarossnok.000webhostapp.com/getPacientesInfo.php"
+    private val HOSTING: String = "https://rossworld.000webhostapp.com/GetInfoCitas.php"
     private lateinit var charactersList: ArrayList<Paciente>
     private lateinit var adapter:PacienteAdapter
 
@@ -117,27 +117,26 @@ class Citas : Fragment() {
                 if(json2.int("success") == 1){
                     val JsonFinal = JSONObject(string.get())
                     val charsInfo = JsonFinal.getJSONArray("cita")
-                    Log.d("error", "$charsInfo")
 
                     for(i in 0 until charsInfo.length()){
-                        val nombre: String = charsInfo.getJSONObject(i).getString("nombre")
-                        val edad: String = charsInfo.getJSONObject(i).getString("edad").toString()
-                        val NoSeguro: String = charsInfo.getJSONObject(i).getString("NoSeguro")
-                        val alergias: String = charsInfo.getJSONObject(i).getString("alergias")
-                        val fechaCita: String = charsInfo.getJSONObject(i).getString("fechaCita")
-                        val horaCita: String = charsInfo.getJSONObject(i).getString("horaCita")
+                        val nombre: String = charsInfo.getJSONObject(i).getString("Nombre_paciente")
+                        val sexo: String = charsInfo.getJSONObject(i).getString("Sexo_paciente").toString()
+                        val domicilio: String = charsInfo.getJSONObject(i).getString("Domicilio_paciente")
+                        val localidad: String = charsInfo.getJSONObject(i).getString("Localidad_paciente")
+                        val numero_telefono: String = charsInfo.getJSONObject(i).getString("Numero_telefono")
+                        val observaciones: String = charsInfo.getJSONObject(i).getString("Observaciones_paciente")
+                        val fecha_nacimiento: String = charsInfo.getJSONObject(i).getString("Fecha_nacimiento")
+                        val noSeguro: String = charsInfo.getJSONObject(i).getString("No_seguro_social")
+                        val fechaCita: String = charsInfo.getJSONObject(i).getString("Fecha_cita")
+                        val horaCita: String = charsInfo.getJSONObject(i).getString("Hora_cita")
 
-                        charactersList.add(Paciente(nombre, edad, NoSeguro,  alergias, fechaCita, horaCita))
+                        charactersList.add(Paciente(nombre, sexo, domicilio, localidad, numero_telefono,observaciones, fecha_nacimiento,
+                                            noSeguro, fechaCita, horaCita))
                     }
 
                     adapter = PacienteAdapter(this.requireActivity(), charactersList, this.requireActivity())
                     recyclerCitas.adapter = adapter
 
-                    /*val decorator = DividerItemDecoration(this.activity,RecyclerView.VERTICAL)
-                    ResourcesCompat.getDrawable(resources, R.drawable.card_view_divider, null)?.let {
-                        decorator.setDrawable(it)
-                    }
-                    recyclerCitas.addItemDecoration(decorator)*/
                 }else if(json2.int("success") == 0){
                     Toast.makeText(this.activity, "No se encontraron resultados", Toast.LENGTH_SHORT).show()
                 }else{

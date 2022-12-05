@@ -35,12 +35,12 @@ class MainActivity2 : AppCompatActivity() {
 
                 val json = JSONObject()
                 json.put("insertMedico", true)
-                json.put("Nombre_medico",username.text)
-                json.put("Pass", password.text)
-                json.put("Cedula_profesional", cedule.text)
-                json.put("Especialidad_medico", specialty.text)
-                json.put("Numero_telefonico_medico", phone.text)
-                json.put("Dependencia", dependence.text)
+                json.put("Nombre_medico",username.text.trim())
+                json.put("Pass", password.text.trim())
+                json.put("Cedula_profesional", cedule.text.trim())
+                json.put("Especialidad_medico", specialty.text.trim())
+                json.put("Numero_telefonico_medico", phone.text.trim())
+                json.put("Dependencia", dependence.text.trim())
 
                 progresAsyncTask = ProgressAsyncTask()
                 progresAsyncTask!!.execute("POST", hosting +"InsertMedico.php", json.toString())

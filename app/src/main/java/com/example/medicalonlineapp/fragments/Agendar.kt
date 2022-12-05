@@ -54,6 +54,9 @@ class Agendar : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        val databundle = arguments
+        val user = databundle!!.getString("user")
+        Toast.makeText(activity, "$user", Toast.LENGTH_SHORT).show()
 
         agendarCita.setOnClickListener{//aqui dentro es donde pueden ir las llamadas de los botones, los set on click listener y de mas
             if(!txtNombreAgendar.text.isNullOrEmpty() && txtSexo.selectedItem != ""

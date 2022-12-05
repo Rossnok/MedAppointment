@@ -42,18 +42,23 @@ class PacienteAdapter (mCtx: Context, pacientesList:List<Paciente>, activity: Ac
         val paciente: Paciente = pacienteList[position]
 
         holder.nombre!!.text = paciente.getNombre()
-        holder.edad!!.text = paciente.getEdad()
+        holder.edad!!.text = paciente.getFechaNacimiento()
         holder.alergias!!.text = paciente.getAlergias()
         holder.fechaCita!!.text = paciente.getFechaCita()
         holder.horaCita!!.text = paciente.getHoraCita()
 
         holder.itemView.setOnClickListener(){
             val nombre = pacienteList[position].getNombre()
-            val edad = pacienteList[position].getEdad()
-            val alergias = pacienteList[position].getAlergias()
+            val sexo = pacienteList[position].getSexo()
+            val domicilio = pacienteList[position].getDomicilio()
+            val localidad = pacienteList[position].getLocalidad()
+            val numeroTelefono = pacienteList[position].getNumeroTelefono()
+            val noSeguro = pacienteList[position].getNoSeguro()
+            val fechaNacimiento = pacienteList[position].getFechaNacimiento()
+            val observaciones = pacienteList[position].getAlergias()
             val fechaCita = pacienteList[position].getFechaCita()
             val horaCita = pacienteList[position].getHoraCita()
-            showDialog(nombre, edad, alergias, fechaCita, horaCita)
+            showDialog(nombre, domicilio,localidad)
         }
 
     }
@@ -82,17 +87,22 @@ class PacienteAdapter (mCtx: Context, pacientesList:List<Paciente>, activity: Ac
 
     }
 
-    private fun showDialog(nombre:String, edad:String, alergias:String, fechaCita:String, horaCita:String) {
+    private fun showDialog(nombre:String, domicilio:String, localidad:String) {
         iOSDialogBuilder(activity)
-            .setTitle("Datos Del Paciente")
-            .setSubtitle("Informacion:")
+            .setTitle("Datos de \n $nombre")
+            .setSubtitle("Informacion:" +
+                    "\n Domicilio: $domicilio \n Localidad: $localidad")
             .setBoldPositiveLabel(true)
             .setCancelable(true)
-            .setPositiveListener("consultar"){ dialog ->
+            .setPositiveListener("Consultar Ubicacion"){ dialog ->
+                val intent = Intent(activity, GoogleMapsInfo::class.java).apply {
+                    putExtra("nombre", nombre)
+                    putExtra("domicilio", domicilio)
+                    putExtra("localidad", localidad)
 
-                val intent = Intent(activity, GoogleMapsInfo::class.java)
-                activity.startActivity(intent)
-                dialog.dismiss()
+                    activity.startActivity(this)
+                    dialog.dismiss()
+                }
             }
             .setNegativeListener("Cancelar"){dialog ->
                 dialog.dismiss()

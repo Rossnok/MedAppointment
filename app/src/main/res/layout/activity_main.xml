@@ -17,11 +17,16 @@
         <ProgressBar
             android:id="@+id/progresLoginBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
+            android:layout_height="30px"
+            android:indeterminate="true"
+            android:layout_gravity="top"
             android:layout_marginBottom="32dp"
+            android:progressTint="#EBEFF3"
+            android:progressBackgroundTint="#0B5CD5"
+            android:progressDrawable="@drawable/login_button"
             android:visibility="invisible"
-            tools:visibility="invisible" />
+            tools:visibility="invisible"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
 
         <LinearLayout
             android:layout_width="match_parent"

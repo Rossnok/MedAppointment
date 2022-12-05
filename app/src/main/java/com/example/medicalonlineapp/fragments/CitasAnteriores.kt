@@ -124,13 +124,18 @@ class CitasAnteriores : Fragment() {
 
                     for(i in 0 until charsInfo.length()){
                         val nombre: String = charsInfo.getJSONObject(i).getString("Nombre_paciente")
-                        val edad: String = charsInfo.getJSONObject(i).getString("Fecha_nacimiento").toString()
-                        val NoSeguro: String = charsInfo.getJSONObject(i).getString("No_seguro_social")
-                        val alergias: String = charsInfo.getJSONObject(i).getString("Observaciones_paciente")
+                        val sexo: String = charsInfo.getJSONObject(i).getString("Sexo_paciente").toString()
+                        val domicilio: String = charsInfo.getJSONObject(i).getString("Domicilio_paciente")
+                        val localidad: String = charsInfo.getJSONObject(i).getString("Localidad_paciente")
+                        val numero_telefono: String = charsInfo.getJSONObject(i).getString("Numero_telefono")
+                        val observaciones: String = charsInfo.getJSONObject(i).getString("Observaciones_paciente")
+                        val fecha_nacimiento: String = charsInfo.getJSONObject(i).getString("Fecha_nacimiento")
+                        val noSeguro: String = charsInfo.getJSONObject(i).getString("No_seguro_social")
                         val fechaCita: String = charsInfo.getJSONObject(i).getString("Fecha_cita")
                         val horaCita: String = charsInfo.getJSONObject(i).getString("Hora_cita")
 
-                        charactersList.add(Paciente(nombre, edad, NoSeguro,  alergias, fechaCita, horaCita))
+                        charactersList.add(Paciente(nombre, sexo, domicilio, localidad, numero_telefono,observaciones, fecha_nacimiento,
+                            noSeguro, fechaCita, horaCita))
                     }
 
                     adapter = PacienteAdapter(this.requireActivity(), charactersList, this.requireActivity())

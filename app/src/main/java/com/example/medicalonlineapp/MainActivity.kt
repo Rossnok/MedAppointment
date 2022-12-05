@@ -140,15 +140,15 @@ class MainActivity : AppCompatActivity() {
                     val datosUsuario = jsonFinal.getJSONArray("credenciales")
                     val usuario = datosUsuario.getJSONObject(0).getString("Nombre_medico")
                     val contra = datosUsuario.getJSONObject(0).getString("Pass")
-                    Log.e("user", usuario)
-                    Log.e("user", contra)
-                    Log.e("user", username.text.toString())
-                    Log.e("user", password.text.toString())
 
-                    if(username.text.toString() == usuario.toString() && password.text.toString() == contra.toString()){
+
+                    if(username.text.trim().toString() == usuario.toString() && password.text.toString().trim() == contra.toString()){
                         Toast.makeText(applicationContext, "Bienvenido!", Toast.LENGTH_SHORT).show()
-                        var intent: Intent = Intent(applicationContext, PrincipalView::class.java)
-                        startActivity(intent)
+                        var intent: Intent = Intent(applicationContext, PrincipalView::class.java).apply {
+                            putExtra("user", username.text.toString())
+                            startActivity(this)
+                        }
+
                     }else{
                         Toast.makeText(applicationContext, "Comprueba tus credenciales e intentalo nuevamente", Toast.LENGTH_SHORT).show()
                     }

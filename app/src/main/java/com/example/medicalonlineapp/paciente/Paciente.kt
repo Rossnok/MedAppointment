@@ -3,34 +3,62 @@ package com.example.medicalonlineapp.paciente
 class Paciente {
 
     private var nombre = ""
-    private var edad = ""
     private var NoSeguro = ""
-    private var alergias = ""
+    private var observaciones = ""
     private var fechaCita = ""
     private var horaCita = ""
+    private var sexo_paciente = ""
+    private var numero_telefono = ""
+    private var fecha_nacimiento = ""
+    private var domicilio = ""
+    private var localidad = ""
 
     constructor(
         nombre:String,
-        edad:String,
+        sexo_paciente:String,
+        domicilio:String,
+        localidad:String,
+        numero_telefono:String,
+        observaciones:String,
+        fecha_nacimiento:String,
         NoSeguro:String,
-        alergias:String,
         fechaCita:String,
-        horaCita:String
+        horaCita:String,
     ){
         this.nombre = nombre
-        this.edad = edad
         this.NoSeguro = NoSeguro
-        this.alergias = alergias
+        this.observaciones = observaciones
         this.fechaCita = fechaCita
         this.horaCita = horaCita
+        this.sexo_paciente = sexo_paciente
+        this.numero_telefono = numero_telefono
+        this.fecha_nacimiento = fecha_nacimiento
+        this.domicilio = domicilio
+        this.localidad = localidad
+    }
+
+    fun  getNumeroTelefono(): String{
+        return this.numero_telefono
+    }
+
+    fun getFechaNacimiento(): String{
+        return this.fecha_nacimiento
+    }
+
+    fun getLocalidad(): String{
+        return this.localidad
+    }
+
+    fun getDomicilio(): String{
+        return this.domicilio
+    }
+
+    fun getSexo(): String{
+        return this.sexo_paciente
     }
 
     fun getNombre(): String{
         return this.nombre
-    }
-
-    fun getEdad(): String{
-        return this.edad
     }
 
     fun getNoSeguro(): String{
@@ -38,7 +66,7 @@ class Paciente {
     }
 
     fun getAlergias(): String{
-        return this.alergias
+        return this.observaciones
     }
 
     fun getFechaCita(): String{
