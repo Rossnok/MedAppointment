@@ -6,10 +6,8 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.widget.addTextChangedListener
@@ -36,8 +34,22 @@ class Citas : Fragment() {
     private lateinit var adapter:PacienteAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
+    }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_bar, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if(id== R.id.salir){
+            Toast.makeText(this.activity, "Cerrando sesión", Toast.LENGTH_SHORT).show()
+
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onCreateView(
@@ -68,6 +80,7 @@ class Citas : Fragment() {
             }
             adapter.updateList(citasFiltradas)
         }
+
         cargarCitas()
     }
 
@@ -120,6 +133,11 @@ class Citas : Fragment() {
                     adapter = PacienteAdapter(this.requireActivity(), charactersList, this.requireActivity())
                     recyclerCitas.adapter = adapter
 
+                    /*val decorator = DividerItemDecoration(this.activity,RecyclerView.VERTICAL)
+                    ResourcesCompat.getDrawable(resources, R.drawable.card_view_divider, null)?.let {
+                        decorator.setDrawable(it)
+                    }
+                    recyclerCitas.addItemDecoration(decorator)*/
                 }else if(json2.int("success") == 0){
                     Toast.makeText(this.activity, "No se encontraron resultados", Toast.LENGTH_SHORT).show()
                 }else{

@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         supportActionBar!!.hide()
+
         loginButton.setOnClickListener(){
            if(!username.text.isNullOrEmpty() && !password.text.isNullOrEmpty()){
                val json = JSONObject()

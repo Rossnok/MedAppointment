@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/backdronud"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <FrameLayout

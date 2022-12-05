@@ -1,6 +1,7 @@
 package com.example.medicalonlineapp
 
 
+import android.content.Intent
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -126,9 +127,11 @@ class MainActivity2 : AppCompatActivity() {
 
                 val json2: JsonObject = parser.parse(stringBuilder) as JsonObject
                 if (json2.int("success") == 1) {
-                    Toast.makeText(applicationContext, "Te has registrado con exito, bienvenido", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Te has registrado con exito", Toast.LENGTH_SHORT).show()
+                    val intento: Intent = Intent(applicationContext, MainActivity::class.java)
+                    startActivity(intento)
                 }else if (json2.int("success") == 0){
-                    Toast.makeText(applicationContext, "Ocurrio un problema durante el registro, contacte a sopporte tecnico", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Ocurrio un problema durante el registro.", Toast.LENGTH_SHORT).show()
                 }
             }
             super.onPostExecute(result)

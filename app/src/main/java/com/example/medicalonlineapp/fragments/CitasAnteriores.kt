@@ -1,11 +1,24 @@
 package com.example.medicalonlineapp.fragments
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
+import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.beust.klaxon.JsonObject
+import com.beust.klaxon.Parser
 import com.example.medicalonlineapp.R
+import com.example.medicalonlineapp.adapters.PacienteAdapter
+import com.example.medicalonlineapp.http.httpRequest
+import com.example.medicalonlineapp.paciente.Paciente
+import kotlinx.android.synthetic.main.fragment_citas.*
+import org.json.JSONObject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,16 +31,28 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class CitasAnteriores : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    var swipeRefreshLayout: SwipeRefreshLayout? = null
+    private val HOSTING: String = "https://rossworld.000webhostapp.com/GetInfoAnteriores.php"
+    private lateinit var charactersList: ArrayList<Paciente>
+    private lateinit var adapter:PacienteAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_bar, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if(id== R.id.salir){
+            Toast.makeText(this.activity, "Cerrando sesión", Toast.LENGTH_SHORT).show()
+
         }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onCreateView(
@@ -35,26 +60,102 @@ class CitasAnteriores : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_citas_anteriores, container, false)
+        return inflater.inflate(R.layout.fragment_citas, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CitasAnteriores.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CitasAnteriores().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        swipeRefreshLayout = swipeToRefreshLayout
+
+        recyclerCitas.setHasFixedSize(true)
+        recyclerCitas.layoutManager = LinearLayoutManager(this.activity)
+
+
+        swipeRefreshLayout!!.setOnRefreshListener {
+            cargarCitas()
+        }
+
+        editFilter.addTextChangedListener { nombreFilter ->
+            val citasFiltradas = this.charactersList.filter { cita ->
+                cita.getNombre().toLowerCase().contains(nombreFilter.toString().toLowerCase())
             }
+            adapter.updateList(citasFiltradas)
+        }
+
+        cargarCitas()
+    }
+
+    private fun isOnline(): Boolean{
+        val on = (this.requireActivity().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager)
+
+        val activityNetwork: NetworkInfo? = on.activeNetworkInfo
+
+        return activityNetwork != null && activityNetwork.isConnected
+    }
+
+    private fun cargarCitas() {
+
+        if(isOnline()){
+            try {
+                val json = JSONObject()
+
+                json.put("getPacientesInfo", true)
+
+                val string = httpRequest{
+                    if(it == null){
+                        print("error conexion")
+                        return@httpRequest
+                    }
+                    println("it $it")
+                }.execute("POST", HOSTING, json.toString())
+
+                val parser = Parser()
+                val stringBuilder: StringBuilder = StringBuilder(string.get())
+                val json2: JsonObject = parser.parse(stringBuilder) as JsonObject
+
+                charactersList = ArrayList()
+
+                if(json2.int("success") == 1){
+                    val JsonFinal = JSONObject(string.get())
+                    val charsInfo = JsonFinal.getJSONArray("cita")
+                    Log.d("error", "$charsInfo")
+
+                    for(i in 0 until charsInfo.length()){
+                        val nombre: String = charsInfo.getJSONObject(i).getString("Nombre_paciente")
+                        val edad: String = charsInfo.getJSONObject(i).getString("Fecha_nacimiento").toString()
+                        val NoSeguro: String = charsInfo.getJSONObject(i).getString("No_seguro_social")
+                        val alergias: String = charsInfo.getJSONObject(i).getString("Observaciones_paciente")
+                        val fechaCita: String = charsInfo.getJSONObject(i).getString("Fecha_cita")
+                        val horaCita: String = charsInfo.getJSONObject(i).getString("Hora_cita")
+
+                        charactersList.add(Paciente(nombre, edad, NoSeguro,  alergias, fechaCita, horaCita))
+                    }
+
+                    adapter = PacienteAdapter(this.requireActivity(), charactersList, this.requireActivity())
+                    recyclerCitas.adapter = adapter
+
+                    /*val decorator = DividerItemDecoration(this.activity,RecyclerView.VERTICAL)
+                    ResourcesCompat.getDrawable(resources, R.drawable.card_view_divider, null)?.let {
+                        decorator.setDrawable(it)
+                    }
+                    recyclerCitas.addItemDecoration(decorator)*/
+                }else if(json2.int("success") == 0){
+                    Toast.makeText(this.activity, "No se encontraron resultados", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this.activity, "Problemas en la conexion", Toast.LENGTH_SHORT).show()
+                }
+
+            }catch (ex:Exception){
+                Toast.makeText(this.activity, "ha ocurrido un problema", Toast.LENGTH_SHORT).show()
+                ex.printStackTrace()
+                swipeRefreshLayout!!.isRefreshing = false
+            }
+
+            swipeRefreshLayout!!.isRefreshing = false
+        }else{
+            swipeRefreshLayout!!.isRefreshing = false
+        }
     }
 }

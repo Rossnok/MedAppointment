@@ -7,10 +7,7 @@ import androidx.fragment.app.Fragment
 import com.example.medicalonlineapp.R
 import com.example.medicalonlineapp.databinding.ActivityMainBinding
 import com.example.medicalonlineapp.databinding.ActivityPrincipalViewBinding
-import com.example.medicalonlineapp.fragments.Agendar
-import com.example.medicalonlineapp.fragments.Citas
-import com.example.medicalonlineapp.fragments.CitasAnteriores
-import com.example.medicalonlineapp.fragments.Home
+import com.example.medicalonlineapp.fragments.*
 
 class PrincipalView : AppCompatActivity() {
 
@@ -33,7 +30,7 @@ class PrincipalView : AppCompatActivity() {
                 R.id.menuItemAgendar -> replaceFragments(Agendar())
                 R.id.menuItemCitas -> replaceFragments(Citas())
                 R.id.menuItemAnteriores -> replaceFragments(CitasAnteriores())
-
+                R.id.menuItemPerfil -> replaceFragments(profile())
             }
 
             true

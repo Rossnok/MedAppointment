@@ -24,6 +24,7 @@ class PacienteAdapter (mCtx: Context, pacientesList:List<Paciente>, activity: Ac
 
     private var pacienteList : List<Paciente>
 
+
     init{
         this.activity = activity
 
