@@ -135,6 +135,11 @@ class MainActivity2 : AppCompatActivity() {
                 }
             }
             super.onPostExecute(result)
+            username.setText("")
+            password.setText("")
+            cedule.setText("")
+            specialty.setText("")
+            dependence.setText("")
         }
 
         override fun onCancelled() {

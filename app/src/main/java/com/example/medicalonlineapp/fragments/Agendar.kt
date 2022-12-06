@@ -38,7 +38,7 @@ class Agendar : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item!!.itemId
         if(id== R.id.salir){
-            Toast.makeText(this.activity, "Salir", Toast.LENGTH_SHORT).show()
+
         }
         return super.onOptionsItemSelected(item)
     }
@@ -56,7 +56,6 @@ class Agendar : Fragment() {
         super.onActivityCreated(savedInstanceState)
         val databundle = arguments
         val user = databundle!!.getString("user")
-        Toast.makeText(activity, "$user", Toast.LENGTH_SHORT).show()
 
         agendarCita.setOnClickListener{//aqui dentro es donde pueden ir las llamadas de los botones, los set on click listener y de mas
             if(!txtNombreAgendar.text.isNullOrEmpty() && txtSexo.selectedItem != ""
@@ -71,14 +70,15 @@ class Agendar : Fragment() {
                     json.put("Sexo_paciente", 0)
                 }
                 json.put("insertCita", true)
-                json.put("Nombre_paciente", txtNombreAgendar.text)
-                json.put("Domicilio_paciente", txtDomicilio.text)
-                json.put("Localidad_paciente", txtLocalidad.text)
-                json.put("Numero_telefono", txtTelefono.text)
-                json.put("Observaciones_paciente", txtObservaciones.text)
-                json.put("Fecha_nacimiento", txtFechaNacimiento.text)
-                json.put("No_seguro_social", txtSeguroSocial.text)
-                json.put("Fecha_cita", txtFechaCita.text)
+                json.put("Medico", user)
+                json.put("Nombre_paciente", txtNombreAgendar.text.trim())
+                json.put("Domicilio_paciente", txtDomicilio.text.trim())
+                json.put("Localidad_paciente", txtLocalidad.text.trim())
+                json.put("Numero_telefono", txtTelefono.text.trim())
+                json.put("Observaciones_paciente", txtObservaciones.text.trim())
+                json.put("Fecha_nacimiento", txtFechaNacimiento.text.trim())
+                json.put("No_seguro_social", txtSeguroSocial.text.trim())
+                json.put("Fecha_cita", txtFechaCita.text.trim())
                 json.put("Hora_cita", txtHoraCita.selectedItem.toString() + ":00")
                 progresAsyncTask = ProgressAsyncTask()
                 progresAsyncTask!!.execute("POST", hosting + "InsertCita.php", json.toString())
@@ -203,6 +203,15 @@ class Agendar : Fragment() {
                 }
             }
             super.onPostExecute(result)
+            txtNombreAgendar.setText("")
+            txtDomicilio.setText("")
+            txtLocalidad.setText("")
+            txtTelefono.setText("")
+            txtObservaciones.setText("")
+            txtFechaNacimiento.setText("")
+            txtSeguroSocial.setText("")
+            txtFechaCita.setText("")
+
             agendarCita.isEnabled = true
         }
 

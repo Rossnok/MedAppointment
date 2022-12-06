@@ -23,9 +23,7 @@ class PrincipalView : AppCompatActivity() {
 
         supportActionBar!!.hide()
         replaceFragments(Home())
-        user = intent.getStringExtra("user").toString()
-        Toast.makeText(applicationContext, "$user", Toast.LENGTH_SHORT).show()
-
+        user = intent.getStringExtra("user")
 
         binding.bottomNavigationView.setOnItemSelectedListener {
 

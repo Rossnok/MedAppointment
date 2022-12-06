@@ -16,6 +16,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MedicalOnlineApp"
         tools:targetApi="31">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".fragments.GoogleMapsInfo"
+            android:exported="false">
+        </activity>
         <activity
             android:name=".MainActivity2"
             android:exported="false" />
