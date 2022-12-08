@@ -7,7 +7,7 @@
     android:background="@drawable/custom_edittext"
     android:padding="20px"
     app:cardCornerRadius="15dp"
-    app:cardBackgroundColor="#95AB9E"
+    app:cardBackgroundColor="#D5DFE8"
     app:cardElevation="20dp">
 
         <LinearLayout
@@ -36,7 +36,7 @@
                     android:layout_marginBottom="0dp"
                     android:fontFamily="@font/roboto_bold"
                     android:text="Sergio Rosas Mendez"
-                    android:textColor="@color/white"
+                    android:textColor="@color/principal"
                     android:textSize="20dp" />
 
                 <TextView
@@ -74,7 +74,7 @@
                         android:layout_marginBottom="8dp"
                         android:fontFamily="@font/roboto_mediumitalic"
                         android:text="25/10/2022"
-                        android:textColor="@color/white"
+                        android:textColor="@color/principal"
                         android:textSize="16dp" />
 
                     <TextView
@@ -84,7 +84,7 @@
                         android:layout_marginLeft="10dp"
                         android:fontFamily="@font/roboto_mediumitalic"
                         android:text="13:45 PM"
-                        android:textColor="@color/white"
+                        android:textColor="@color/principal"
                         android:textSize="16dp" />
                 </LinearLayout>
             </LinearLayout>

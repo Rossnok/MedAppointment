@@ -68,12 +68,6 @@ class profile  : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-        var databundle = arguments
-        val user = databundle!!.getString("user")
-
-        // txtUser!!.text = "Bienvenide" + user
-        //Toast.makeText(this.activity, "$user", Toast.LENGTH_SHORT).show()
         //return inflater.inflate(R.layout.fragment_home, container, false)
 
         return inflater.inflate(R.layout.fragment_profile, container, false)
@@ -85,7 +79,7 @@ class profile  : Fragment() {
         val databundle = arguments
         val user = databundle!!.getString("user")
 
-        cargarPerfil()
+        cargarPerfil(user)
 
         saveButton.setOnClickListener{//aqui dentro es donde pueden ir las llamadas de los botones, los set on click listener y de mas
             if(!username.text.isNullOrEmpty() && !password.text.isNullOrEmpty()
@@ -94,7 +88,7 @@ class profile  : Fragment() {
 
                 val json = JSONObject()
                 json.put("insertMedico", true)
-                json.put("Nombre_medico",username.text.trim())
+                json.put("User", user)
                 json.put("Pass", password.text.trim())
                 json.put("Cedula_profesional", cedule.text.trim())
                 json.put("Especialidad_medico", specialty.text.trim())
@@ -118,13 +112,13 @@ class profile  : Fragment() {
         return activityNetwork != null && activityNetwork.isConnected
     }
 
-    private fun cargarPerfil() {
-
+    private fun cargarPerfil(user: String?) {
         if(isOnline()){
             try {
                 val json = JSONObject()
 
                 json.put("getPacientesInfo", true)
+                json.put("User", user)
 
                 val string = httpRequest{
                     if(it == null){

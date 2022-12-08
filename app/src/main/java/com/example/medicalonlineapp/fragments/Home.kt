@@ -48,13 +48,16 @@ class Home : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        var databundle = arguments
-        val user = databundle!!.getString("user")
-
-       // txtUser!!.text = "Bienvenide" + user
-        Toast.makeText(this.activity, "$user", Toast.LENGTH_SHORT).show()
         return inflater.inflate(R.layout.fragment_home, container, false)
 
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val databundle = arguments
+        val user = databundle!!.getString("user")
+        //txtUser!!.text = "Bienvenido " + user
+        //Toast.makeText(this.activity, "$user", Toast.LENGTH_SHORT).show()
     }
 
 }

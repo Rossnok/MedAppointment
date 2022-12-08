@@ -9,9 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Parser
-import com.example.medicalonlineapp.fragments.Agendar
 import kotlinx.android.synthetic.main.activity_main2.*
-import kotlinx.android.synthetic.main.fragment_agendar.*
 import org.json.JSONObject
 import java.io.*
 import java.net.HttpURLConnection
@@ -28,7 +26,7 @@ class MainActivity2 : AppCompatActivity() {
 
         supportActionBar!!.hide()
 
-        registerButton.setOnClickListener{
+        saveButton.setOnClickListener{
             if(!username.text.isNullOrEmpty() && !password.text.isNullOrEmpty()
                 && !cedule.text.isNullOrEmpty() && !phone.text.isNullOrEmpty() &&
                     !dependence.text.isNullOrEmpty() && !specialty.text.isNullOrEmpty()){

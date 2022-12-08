@@ -57,6 +57,7 @@ class Agendar : Fragment() {
         val databundle = arguments
         val user = databundle!!.getString("user")
 
+        //Toast.makeText(this.activity, "$user", Toast.LENGTH_SHORT).show()
         agendarCita.setOnClickListener{//aqui dentro es donde pueden ir las llamadas de los botones, los set on click listener y de mas
             if(!txtNombreAgendar.text.isNullOrEmpty() && txtSexo.selectedItem != ""
                 && ! txtSeguroSocial.text.isNullOrEmpty() && ! txtDomicilio.text.isNullOrEmpty() && ! txtFechaCita.text.isNullOrEmpty()

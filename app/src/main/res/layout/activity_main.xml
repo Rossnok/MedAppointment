@@ -7,26 +7,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/background"
+    android:background="@drawable/login_img"
     tools:context=".MainActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ProgressBar
-            android:id="@+id/progresLoginBar"
-            android:layout_width="match_parent"
-            android:layout_height="30px"
-            android:indeterminate="true"
-            android:layout_gravity="top"
-            android:layout_marginBottom="32dp"
-            android:progressTint="#EBEFF3"
-            android:progressBackgroundTint="#0B5CD5"
-            android:progressDrawable="@drawable/login_button"
-            android:visibility="invisible"
-            tools:visibility="invisible"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -118,5 +105,20 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progresLoginBar"
+            android:layout_width="match_parent"
+            android:layout_height="30px"
+            android:indeterminate="true"
+            android:layout_gravity="top"
+            android:layout_marginBottom="32dp"
+            android:progressTint="#EBEFF3"
+            android:progressBackgroundTint="#0B5CD5"
+            android:progressDrawable="@drawable/login_button"
+            android:visibility="invisible"
+            tools:visibility="invisible"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+
     </FrameLayout>
 </LinearLayout>

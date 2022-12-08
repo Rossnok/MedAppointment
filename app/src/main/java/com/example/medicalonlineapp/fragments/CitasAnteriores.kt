@@ -15,6 +15,7 @@ import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Parser
 import com.example.medicalonlineapp.R
 import com.example.medicalonlineapp.adapters.PacienteAdapter
+import com.example.medicalonlineapp.adapters.citasAdapter
 import com.example.medicalonlineapp.http.httpRequest
 import com.example.medicalonlineapp.paciente.Paciente
 import kotlinx.android.synthetic.main.fragment_citas.*
@@ -34,7 +35,7 @@ class CitasAnteriores : Fragment() {
     var swipeRefreshLayout: SwipeRefreshLayout? = null
     private val HOSTING: String = "https://rossworld.000webhostapp.com/GetInfoAnteriores.php"
     private lateinit var charactersList: ArrayList<Paciente>
-    private lateinit var adapter:PacienteAdapter
+    private lateinit var adapter: citasAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setHasOptionsMenu(true)
@@ -66,6 +67,10 @@ class CitasAnteriores : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        val databundle = arguments
+        val user = databundle!!.getString("user")
+
+        //Toast.makeText(this.activity, "$user", Toast.LENGTH_SHORT).show()
 
         swipeRefreshLayout = swipeToRefreshLayout
 
@@ -74,7 +79,7 @@ class CitasAnteriores : Fragment() {
 
 
         swipeRefreshLayout!!.setOnRefreshListener {
-            cargarCitas()
+            cargarCitas(user)
         }
 
         editFilter.addTextChangedListener { nombreFilter ->
@@ -84,7 +89,7 @@ class CitasAnteriores : Fragment() {
             adapter.updateList(citasFiltradas)
         }
 
-        cargarCitas()
+        cargarCitas(user)
     }
 
     private fun isOnline(): Boolean{
@@ -95,13 +100,14 @@ class CitasAnteriores : Fragment() {
         return activityNetwork != null && activityNetwork.isConnected
     }
 
-    private fun cargarCitas() {
+    private fun cargarCitas(user : String?) {
 
         if(isOnline()){
             try {
                 val json = JSONObject()
 
                 json.put("getPacientesInfo", true)
+                json.put("User", user)
 
                 val string = httpRequest{
                     if(it == null){
@@ -138,7 +144,7 @@ class CitasAnteriores : Fragment() {
                             noSeguro, fechaCita, horaCita))
                     }
 
-                    adapter = PacienteAdapter(this.requireActivity(), charactersList, this.requireActivity())
+                    adapter = citasAdapter(this.requireActivity(), charactersList, this.requireActivity())
                     recyclerCitas.adapter = adapter
 
                     /*val decorator = DividerItemDecoration(this.activity,RecyclerView.VERTICAL)

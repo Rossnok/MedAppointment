@@ -64,6 +64,11 @@ class Citas : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        val databundle = arguments
+        val user = databundle!!.getString("user")
+
+        //Toast.makeText(this.activity, "$user", Toast.LENGTH_SHORT).show()
+
         swipeRefreshLayout = swipeToRefreshLayout
 
         recyclerCitas.setHasFixedSize(true)
@@ -71,7 +76,7 @@ class Citas : Fragment() {
 
 
         swipeRefreshLayout!!.setOnRefreshListener {
-            cargarCitas()
+            cargarCitas(user)
         }
 
         editFilter.addTextChangedListener { nombreFilter ->
@@ -81,7 +86,7 @@ class Citas : Fragment() {
             adapter.updateList(citasFiltradas)
         }
 
-        cargarCitas()
+        cargarCitas(user)
     }
 
     private fun isOnline(): Boolean{
@@ -92,13 +97,14 @@ class Citas : Fragment() {
         return activityNetwork != null && activityNetwork.isConnected
     }
 
-    private fun cargarCitas() {
+    private fun cargarCitas(user : String?) {
 
         if(isOnline()){
             try {
                 val json = JSONObject()
 
                 json.put("getPacientesInfo", true)
+                json.put("User", user)
 
                 val string = httpRequest{
                     if(it == null){
